@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="menu_bar_div">
+        <div class="logo">
+          <h1>R Music</h1>
+        </div>
+        <div class="home_div active">
+          <i class="bx bx-home-alt"></i>
+          <h2>Home</h2>
+        </div>
+        <div class="Playlis_div">
+          <i class="bx bxs-playlist"></i>
+          <h2>Playlist</h2>
 
+        </div>
+            <button id="clr">clr</button>
+
+        <div class="save_playlist">
+          
+          <!-- <div class="inner_div">
+            
+          </div> -->
+        </div>
+        
+      </div>
+      <div class="navBar_div">
+        <div class="search">
+          <i class="bx bx-search"></i>
+          <input type="search" placeholder="Search Music, Artist & Album..." id="search"/>
+        </div>
+        <div class="profile">
+          <img src="" alt="" />
+          <button>login</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="main_content">
+      <div class="Artist_font">
+        <h2>Top Artist</h2>
+        <span> -Top 50</span>
+      </div>
+      <div class="topArtist_div">
+        <div class="outer_card">
+          <div class="image_card">
+            <img src="./5744622.webp" alt="aw" />
+          </div>
+          <h3>Alan Walker</h3>
+          <p>Faded</p>
+          <div class="playbutton">
+            <i class="bx bx-play"></i>
+          </div>
+          
+        </div>
+      </div>
+      <div class="Master_MostPlayer">
+        <div class="master_player">
+          <h1>Now Playing</h1>
+          <div class="music_player">
+            <div class="music_player_image">
+              <img src="./5744622.webp" alt="" />
+            </div>
+            <h4>Alan Walker</h4>
+            <p>Faded</p>
+
+            <div class="player">
+              <p class="initial">0.00</p>
+              <input type="range" min="0" max="100" id="rangebar" />
+              <p class="end">-0.00</p>
+            </div>
+            <div class="music_controls">
+              <i class="bx bx-shuffle"></i>
+              <i class="bx bxs-skip-previous-circle"></i>
+              <div class="play_pause_div">
+                <i class="bx bx-pause"></i>
+              </div>
+              <!-- <i class='bx bx-pause'></i> -->
+              <i class="bx bxs-skip-next-circle"></i>
+              <i class="bx bx-repeat"></i>
+              <!-- <i class='bx bxs-playlist'></i> -->
+            </div>
+          </div>
+        </div>
+        <div class="most_played_div">
+          <div class="mostPlayer_text">
+            <h1>Recenty Played ❤️</h1>
+            <p>10 songs on List</p>
+          </div>
+          <div class="maine_list">
+            <div class="song_list">
+              <div class="songList_img">
+                <img src="./5744622.webp" alt="" />
+              </div>
+              <h4>Song Name</h4>
+              <p>Artist Name</p>
+              <p>4.00</p>
+              <i class="bx bxl-deezer"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="App.js"></script>
+  </body>
+</html>
