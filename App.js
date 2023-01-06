@@ -140,7 +140,7 @@ class UI {
     const nextsong = document.querySelector(".bxs-skip-next-circle");
     const loopSong = document.querySelector(".bx-repeat");
     const addToPlayList = document.querySelector("#playlist");
-    console.log(addToPlayList);
+    // console.log(addToPlayList);
     const range = document.querySelector("#rangebar");
     const initialTime = document.querySelector(".initial");
     const endTime = document.querySelector(".end");
@@ -228,18 +228,18 @@ class UI {
 
   //==========ALL PLAYLIST LOGIC =========//
 
-  saveToPlayList() {
-    const playListBtn = [...document.querySelectorAll(".playList_btn")];
-    playListBtn.forEach((pList) => {
-      let id = pList.dataset.id;
-      // console.log(id);
-      pList.addEventListener("click", () => {
-        let data = { ...Music.findMusic(id) };
-        playlist = [...playlist, data];
-        Storage.savePlaylist(playlist);
-      });
-    });
-  }
+  // saveToPlayList() {
+  //   const playListBtn = [...document.querySelectorAll(".playList_btn")];
+  //   playListBtn.forEach((pList) => {
+  //     let id = pList.dataset.id;
+  //     // console.log(id);
+  //     pList.addEventListener("click", () => {
+  //       let data = { ...Music.findMusic(id) };
+  //       playlist = [...playlist, data];
+  //       Storage.savePlaylist(playlist);
+  //     });
+  //   });
+  // }
 
   clrBtnLogic() {
     clrPlaylist.addEventListener("click", () => {
@@ -260,7 +260,7 @@ class UI {
 
   save() {
     playlist = Storage.getPlaylist();
-    this.savePlaylist(playlist);
+    // this.savePlaylist(playlist);
   }
 
   savePlaylist(playlist) {
