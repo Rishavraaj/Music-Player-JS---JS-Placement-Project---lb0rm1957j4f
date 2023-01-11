@@ -65,8 +65,16 @@ class UI {
     playBtn.forEach((play) => {
       let id = play.dataset.id;
       play.addEventListener("click", () => {
-        let d = { ...Music.findMusic(id) };
-        countTracks = [...countTracks, d];
+        // if(d.id === )
+        let d = JSON.parse(JSON.stringify(Music.findMusic(id)));
+        // console.log(d);
+        let alreadyExist = countTracks.find((i) => i.id === d.id);
+        if (!alreadyExist) {
+          // countTracks = [...countTracks, d];
+          countTracks.push(d);
+        // console.log(countTracks);
+
+        }
         this.nowPlaying(d);
         this.mostPlayed(countTracks);
         this.musicControl();
@@ -134,7 +142,7 @@ class UI {
 
   //==========ALL MUSIC CONTROLS LOGIC =========//
 
-  musicControl(countTracks) {
+  musicControl() {
     const play = document.querySelector(".play_pause_div i");
     const previousSong = document.querySelector(".bxs-skip-previous-circle");
     const nextsong = document.querySelector(".bxs-skip-next-circle");
@@ -228,18 +236,19 @@ class UI {
 
   //==========ALL PLAYLIST LOGIC =========//
 
-  // saveToPlayList() {
-  //   const playListBtn = [...document.querySelectorAll(".playList_btn")];
-  //   playListBtn.forEach((pList) => {
-  //     let id = pList.dataset.id;
-  //     // console.log(id);
-  //     pList.addEventListener("click", () => {
-  //       let data = { ...Music.findMusic(id) };
-  //       playlist = [...playlist, data];
-  //       Storage.savePlaylist(playlist);
-  //     });
-  //   });
-  // }
+  saveToPlayList() {
+    const playListBtn = [...document.querySelectorAll(".playList_btn")];
+    playListBtn.forEach((pList) => {
+      let id = pList.dataset.id;
+      // console.log(id);
+      pList.addEventListener("click", () => {
+        let data = { ...Music.findMusic(id) };
+        playlist = [...playlist, data];
+        // debugger
+        this.savePlaylist(playlist);
+      });
+    });
+  }
 
   clrBtnLogic() {
     clrPlaylist.addEventListener("click", () => {
@@ -259,12 +268,17 @@ class UI {
   }
 
   save() {
-    playlist = Storage.getPlaylist();
-    // this.savePlaylist(playlist);
+    playlist = Storage.getPlaylist() || [];
+    // debugger
+    this.savePlaylist(playlist);
   }
 
   savePlaylist(playlist) {
     let lists = "";
+    // debugger
+    if(!playlist){
+      return;
+    }
     playlist.forEach((list) => {
       lists += `
       <div class="inner_div" data-id=${list.id}>
@@ -278,6 +292,7 @@ class UI {
     });
     // savePlaylits.append(innerDiv);
     savePlaylits.innerHTML = lists;
+    
   }
 
   playlistPlaying() {
