@@ -72,8 +72,7 @@ class UI {
         if (!alreadyExist) {
           // countTracks = [...countTracks, d];
           countTracks.push(d);
-        // console.log(countTracks);
-
+          // console.log(countTracks);
         }
         this.nowPlaying(d);
         this.mostPlayed(countTracks);
@@ -242,9 +241,10 @@ class UI {
       let id = pList.dataset.id;
       pList.addEventListener("click", () => {
         let data = { ...Music.findMusic(id) };
-        if (!playlist.some((item) => item.id === data.id)){
-            playlist.push(data);
-        Storage.savePlaylist(playlist);
+        if (!playlist.some((item) => item.id === data.id)) {
+          playlist.push(data);
+          Storage.savePlaylist(playlist);
+          this.savePlaylist(playlist);
         }
       });
     });
@@ -276,7 +276,7 @@ class UI {
   savePlaylist(playlist) {
     let lists = "";
     // debugger
-    if(!playlist){
+    if (!playlist) {
       return;
     }
     playlist.forEach((list) => {
@@ -292,7 +292,6 @@ class UI {
     });
     // savePlaylits.append(innerDiv);
     savePlaylits.innerHTML = lists;
-    
   }
 
   playlistPlaying() {
