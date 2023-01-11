@@ -240,12 +240,12 @@ class UI {
     const playListBtn = [...document.querySelectorAll(".playList_btn")];
     playListBtn.forEach((pList) => {
       let id = pList.dataset.id;
-      // console.log(id);
       pList.addEventListener("click", () => {
         let data = { ...Music.findMusic(id) };
-        playlist = [...playlist, data];
-        // debugger
-        this.savePlaylist(playlist);
+        if (!playlist.some((item) => item.id === data.id)){
+            playlist.push(data);
+        Storage.savePlaylist(playlist);
+        }
       });
     });
   }
